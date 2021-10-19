@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Venture</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="play_game">Play Game</string>
+    <string name="home">Home</string>
+    <string name="chat">Home</string>
+    <string name="activity">Activity</string>
+    <string name="profile">Profile</string>
+    <string name="error_unknown">Unknown Error</string>
 </resources>

@@ -1,4 +1,4 @@
-package ir.vbile.app.venture.ui.theme
+package ir.vbile.app.venture.core.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
