@@ -14,9 +14,7 @@ class SplashViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            _eventFlow.emit(UiEvent.Navigate(Screen.MainFeedScreen.route))
-//            _eventFlow.emit(UiEvent.Navigate(Screen.LoginScreen.route))
-
+            _eventFlow.emit(UiEvent.Navigate(Screen.RegisterScreen.route))
         }
     }
 }

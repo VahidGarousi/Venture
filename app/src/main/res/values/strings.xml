@@ -7,4 +7,11 @@
     <string name="activity">Activity</string>
     <string name="profile">Profile</string>
     <string name="error_unknown">Unknown Error</string>
+    <string name="password_visible_content_description">Hide password</string>
+    <string name="password_hidden_content_description">Show password</string>
+    <string name="hint_email">ایمیل</string>
+    <string name="hint_password">رمز عبور</string>
+    <string name="register">ثبت نام</string>
+    <string name="already_have_an_account">حساب کاربری دارید؟</string>
+    <string name="sign_up">ثبت نام کنید</string>
 </resources>

@@ -12,9 +12,10 @@ import androidx.compose.ui.graphics.Color.Companion.Yellow
 private val DarkColorPalette = darkColors(
     primary = IrrigoPurple,
     primaryVariant = Purple700,
-    secondary = IrrigoPurple,
+    secondary = ApplausePlease,
     background = ColdSteal,
-    surface = BlackVelvet
+    surface = BlackVelvet,
+    onBackground = White
 )
 
 private val LightColorPalette = lightColors(
