@@ -50,7 +50,7 @@ fun SplashScreen(
             )
             delay(AuthConstants.SPLASH_SCREEN_DURATION)
             navAction(NavigationActions.NavigateUp)
-            navAction(NavigationActions.Navigate(Screen.LoginScreen.route))
+            navAction(NavigationActions.Navigate(Screen.RegisterScreen.route))
         }
     }
     Box(

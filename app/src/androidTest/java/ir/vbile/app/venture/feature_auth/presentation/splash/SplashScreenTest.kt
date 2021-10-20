@@ -57,7 +57,7 @@ class SplashScreenTest {
                     when (it) {
                         is NavigationActions.Navigate -> {
                             navController.navigate(it.route)
-                            assertThat(it).isEqualTo(NavigationActions.Navigate(Screen.LoginScreen.route))
+                            assertThat(it).isEqualTo(NavigationActions.Navigate(Screen.RegisterScreen.route))
                         }
                         NavigationActions.NavigateUp -> {
                             navController.navigateUp()
@@ -71,7 +71,7 @@ class SplashScreenTest {
         advanceTimeBy(AuthConstants.SPLASH_SCREEN_DURATION)
         verify {
             navController.navigateUp()
-            navController.navigate(Screen.LoginScreen.route)
+            navController.navigate(Screen.RegisterScreen.route)
         }
     }
 }

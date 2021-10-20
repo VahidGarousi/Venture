@@ -25,7 +25,7 @@ fun AppNavigation(
         composable(
             route = Screen.SplashScreen.route
         ) {
-            SplashScreen(scaffoldState = scaffoldState) {
+            SplashScreen() {
                 processNavigationAction(it, navController)
             }
         }

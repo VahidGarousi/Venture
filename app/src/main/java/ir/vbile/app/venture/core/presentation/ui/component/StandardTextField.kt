@@ -15,6 +15,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.toggleableState
+import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -32,7 +35,7 @@ fun StandardTextField(
     maxLength: Int = 400,
     error: String = "",
     singleLine: Boolean = true,
-    maxLines : Int = 1,
+    maxLines: Int = 1,
     style: TextStyle = TextStyle(
         color = MaterialTheme.colors.onBackground
     ),
