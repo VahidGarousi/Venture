@@ -38,7 +38,6 @@ fun RegisterScreen(
     val emailState = vm.emailState.value
     val passwordState = vm.passwordState.value
     val confirmPasswordState = vm.confirmedPasswordState.value
-
     Box(
         modifier = Modifier
             .fillMaxSize()

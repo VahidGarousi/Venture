@@ -20,9 +20,10 @@ class DemoAuthRepositoryImpl : AuthRepository {
     }
 
     override suspend fun authenticate(): SimpleResource {
-        return when ((0..1).random()) {
+        return Resource.Error(uiText = UiText.unknownError())
+       /* return when ((0..1).random()) {
             0 -> Resource.Error(uiText = UiText.unknownError())
             else -> Resource.Success(Unit)
-        }
+        }*/
     }
 }

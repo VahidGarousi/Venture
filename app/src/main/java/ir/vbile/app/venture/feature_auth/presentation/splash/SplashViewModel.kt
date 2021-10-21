@@ -36,7 +36,7 @@ class SplashViewModel @Inject constructor(
                     _uiEvent.value = UiEvent.Navigate(Screen.MainFeedScreen.route)
                 }
                 is Resource.Error -> {
-                    _uiEvent.value = UiEvent.Navigate(Screen.LoginScreen.route)
+                    _uiEvent.value = UiEvent.Navigate(Screen.RegisterScreen.route)
                 }
             }
         }
