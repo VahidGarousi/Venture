@@ -2,6 +2,7 @@ package ir.vbile.app.venture.core.presentation
 
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -25,9 +26,11 @@ fun AppNavigation(
         composable(
             route = Screen.SplashScreen.route
         ) {
-            SplashScreen() {
-                processNavigationAction(it, navController)
-            }
+            SplashScreen(scaffoldState,
+                navAction = {
+                    processNavigationAction(it, navController)
+                }
+            )
         }
         composable(
             Screen.MainFeedScreen.route
