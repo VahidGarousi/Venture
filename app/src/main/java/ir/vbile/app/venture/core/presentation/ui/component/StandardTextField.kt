@@ -2,6 +2,7 @@ package ir.vbile.app.venture.core.presentation.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -24,6 +25,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import ir.vbile.app.venture.core.presentation.ui.theme.IconSizeMedium
+import ir.vbile.app.venture.core.presentation.ui.theme.SpaceSmall
 import ir.vbile.app.venture.core.util.TestTags.PASSWORD_TOGGLE
 import ir.vbile.app.venture.core.util.TestTags.STANDARD_TEXT_FIELD
 
@@ -112,8 +114,10 @@ fun StandardTextField(
                 text = error,
                 style = MaterialTheme.typography.body2,
                 color = MaterialTheme.colors.error,
-                textAlign = TextAlign.End,
-                modifier = Modifier.fillMaxWidth()
+                textAlign = TextAlign.Start,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = SpaceSmall)
             )
         }
     }

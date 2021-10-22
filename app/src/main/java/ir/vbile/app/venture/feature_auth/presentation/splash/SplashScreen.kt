@@ -35,7 +35,6 @@ fun SplashScreen(
     vm: SplashViewModel = hiltViewModel(),
     navAction: (NavigationActions) -> Unit = {}
 ) {
-    val uiEvent = vm.uiState.value
     val context = LocalContext.current
     val scale = remember {
         Animatable(0f)
@@ -56,24 +55,26 @@ fun SplashScreen(
             )
         }
     }
-    LaunchedEffect(uiEvent) {
-        withContext(dispatcher){
-            when (uiEvent) {
-                is UiEvent.Navigate -> {
-                    navAction(NavigationActions.NavigateUp)
-                    navAction(NavigationActions.Navigate(uiEvent.route))
-                }
-                UiEvent.NavigateUp -> {
-                    navAction(NavigationActions.NavigateUp)
-                }
-                is UiEvent.ShowSnackBar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = uiEvent.uiText.asString(
-                            context
+    LaunchedEffect(true) {
+        withContext(dispatcher) {
+            vm.eventFlow.collectLatest { event ->
+                when (event) {
+                    is UiEvent.Navigate -> {
+                        navAction(NavigationActions.NavigateUp)
+                        navAction(NavigationActions.Navigate(event.route))
+                    }
+                    UiEvent.NavigateUp -> {
+                        navAction(NavigationActions.NavigateUp)
+                    }
+                    is UiEvent.ShowSnackBar -> {
+                        scaffoldState.snackbarHostState.showSnackbar(
+                            message = event.uiText.asString(
+                                context
+                            )
                         )
-                    )
+                    }
+                    UiEvent.Idle -> Unit
                 }
-                UiEvent.Idle -> Unit
             }
         }
     }

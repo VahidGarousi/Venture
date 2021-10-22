@@ -6,6 +6,7 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color.Companion.Green
+import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.Color.Companion.Yellow
 
@@ -15,7 +16,8 @@ private val DarkColorPalette = darkColors(
     secondary = ApplausePlease,
     background = ColdSteal,
     surface = BlackVelvet,
-    onBackground = White
+    onBackground = White,
+    error = White
 )
 
 private val LightColorPalette = lightColors(

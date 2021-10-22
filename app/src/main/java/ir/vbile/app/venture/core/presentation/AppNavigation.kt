@@ -21,7 +21,7 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.SplashScreen.route
+        startDestination = Screen.LoginScreen.route
     ) {
         composable(
             route = Screen.SplashScreen.route
@@ -32,6 +32,19 @@ fun AppNavigation(
                 }
             )
         }
+        composable(
+            route = Screen.LoginScreen.route
+        ) {
+            LoginScreen()
+        }
+        composable(
+            route = Screen.RegisterScreen.route
+        ) {
+            RegisterScreen(
+                navAction = { processNavigationAction(it,navController) }
+            )
+        }
+
         composable(
             Screen.MainFeedScreen.route
         ) {
@@ -64,16 +77,6 @@ fun AppNavigation(
         ) {
 
         }
-        composable(
-            route = Screen.LoginScreen.route
-        ) {
-            LoginScreen()
-        }
-        composable(
-            route = Screen.RegisterScreen.route
-        ) {
-            RegisterScreen()
-        }
     }
 }
 
@@ -83,6 +86,6 @@ private fun processNavigationAction(
 ) {
     when (action) {
         is NavigationActions.Navigate -> nacController.navigate(action.route)
-        NavigationActions.NavigateUp -> nacController.navigateUp()
+        NavigationActions.NavigateUp -> nacController.popBackStack()
     }
 }

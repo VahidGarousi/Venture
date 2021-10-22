@@ -11,10 +11,19 @@
     <string name="password_hidden_content_description">Show password</string>
     <string name="hint_email">ایمیل</string>
     <string name="hint_password">رمز عبور</string>
+    <string name="hint_confirm_password">تکرار رمز عبور</string>
     <string name="register">ثبت نام</string>
     <string name="already_have_an_account">حساب کاربری دارید؟</string>
+    <string name="don_not_have_an_account_yet">حساب کاربری ندارید؟</string>
     <string name="sign_up">ثبت نام کنید</string>
+    <string name="sign_in">وارد شوید</string>
     <string name="error_couldnt_reach">سرور در دسترس نیست</string>
     <string name="oops_something_went_wrong">خطای نا مشخص</string>
-    <string name="successfully_registered_an_account">Successfully registered</string>
+    <string name="successfully_registered_an_account">ثبت نام با موفقیت انجام شد</string>
+    <string name="error_field_empty">این فیلد نمی تواند خالی باشد</string>
+    <string name="not_valid_email">این ایمیل معتبر نیست</string>
+    <string name="password_are_not_same">رمز عبور یکسان نیست!</string>
+    <string name="input_too_short">رمزعبور حداقل باید شامل %d کاراکتر باشد</string>
+    <string name="invalid_password">رمز عبور باید حداقل دارای یک حرف بزرگ و یک عدد باشد</string>
+    <string name="login">ورود</string>
 </resources>

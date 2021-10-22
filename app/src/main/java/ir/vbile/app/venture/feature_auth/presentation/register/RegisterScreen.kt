@@ -4,14 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,20 +18,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ir.vbile.app.venture.R
+import ir.vbile.app.venture.core.presentation.NavigationActions
 import ir.vbile.app.venture.core.presentation.ui.component.StandardTextField
 import ir.vbile.app.venture.core.presentation.ui.theme.SpaceLarge
 import ir.vbile.app.venture.core.util.TestTags
 import ir.vbile.app.venture.core.util.TestTags.STANDARD_TEXT_FIELD
 import ir.vbile.app.venture.feature_auth.presentation.util.AuthError
+import ir.vbile.app.venture.feature_auth.util.AuthConstants
 
-@Preview
 @Composable
 fun RegisterScreen(
-    vm: RegisterViewModel = hiltViewModel()
+    vm: RegisterViewModel = hiltViewModel(),
+    navAction: (NavigationActions) -> Unit = {}
 ) {
     val emailState = vm.emailState.value
     val passwordState = vm.passwordState.value
@@ -68,6 +65,11 @@ fun RegisterScreen(
                 onValueChanged = {
                     vm.onEvent(RegisterEvent.EnteredEmail(it))
                 },
+                error = when (emailState.error) {
+                    is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
+                    is AuthError.InvalidEmail -> stringResource(id = R.string.not_valid_email)
+                    else -> ""
+                },
                 keyboardType = KeyboardType.Email,
                 modifier = Modifier.testTag(STANDARD_TEXT_FIELD)
             )
@@ -78,6 +80,18 @@ fun RegisterScreen(
                 keyboardType = KeyboardType.Password,
                 onValueChanged = {
                     vm.onEvent(RegisterEvent.EnteredPassword(it))
+                },
+                error = when (passwordState.error) {
+                    is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
+                    is AuthError.InvalidPassword -> stringResource(id = R.string.invalid_password)
+                    is AuthError.InputTooShort -> stringResource(
+                        id = R.string.input_too_short,
+                        AuthConstants.MIN_PASSWORD_LENGTH
+                    )
+                    is AuthError.InvalidPasswordAndConfirmPasswordDoesNotTheSame -> stringResource(
+                        id = R.string.password_are_not_same
+                    )
+                    else -> ""
                 },
                 showPasswordToggle = passwordState.isPasswordVisible,
                 onPasswordToggleClick = {
@@ -90,10 +104,22 @@ fun RegisterScreen(
             Spacer(modifier = Modifier.height(SpaceLarge))
             StandardTextField(
                 text = confirmPasswordState.text,
-                hint = stringResource(id = R.string.hint_password),
+                hint = stringResource(id = R.string.hint_confirm_password),
                 keyboardType = KeyboardType.Password,
                 onValueChanged = {
                     vm.onEvent(RegisterEvent.EnteredConfirmedPassword(it))
+                },
+                error = when (passwordState.error) {
+                    is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
+                    is AuthError.InvalidPassword -> stringResource(id = R.string.invalid_password)
+                    is AuthError.InputTooShort -> stringResource(
+                        id = R.string.input_too_short,
+                        AuthConstants.MIN_PASSWORD_LENGTH
+                    )
+                    is AuthError.InvalidPasswordAndConfirmPasswordDoesNotTheSame -> stringResource(
+                        id = R.string.password_are_not_same
+                    )
+                    else -> ""
                 },
                 showPasswordToggle = confirmPasswordState.isPasswordVisible,
                 onPasswordToggleClick = {
@@ -132,13 +158,13 @@ fun RegisterScreen(
                         fontWeight = FontWeight.Bold
                     )
                 ) {
-                    append(stringResource(id = R.string.sign_up))
+                    append(stringResource(id = R.string.sign_in))
                 }
             },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .clickable {
-
+                    navAction(NavigationActions.NavigateUp)
                 }
         )
     }
