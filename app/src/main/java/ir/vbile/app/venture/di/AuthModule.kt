@@ -9,10 +9,7 @@ import ir.vbile.app.venture.feature_auth.data.remote.AuthApi
 import ir.vbile.app.venture.feature_auth.data.repository.AuthRepositoryImpl
 import ir.vbile.app.venture.feature_auth.data.repository.DemoAuthRepositoryImpl
 import ir.vbile.app.venture.feature_auth.domain.repository.AuthRepository
-import ir.vbile.app.venture.feature_auth.domain.use_case.AuthenticateUseCase
-import ir.vbile.app.venture.feature_auth.domain.use_case.AuthenticateUseCaseImpl
-import ir.vbile.app.venture.feature_auth.domain.use_case.RegisterUseCase
-import ir.vbile.app.venture.feature_auth.domain.use_case.RegisterUseCaseImpl
+import ir.vbile.app.venture.feature_auth.domain.use_case.*
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -53,5 +50,13 @@ object AuthModule {
         repository: AuthRepository
     ): RegisterUseCase {
         return RegisterUseCaseImpl(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLoginUseCase(
+        repository: AuthRepository
+    ): LoginUseCase {
+        return LoginUseCaseImpl(repository)
     }
 }
