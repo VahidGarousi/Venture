@@ -5,13 +5,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ir.vbile.app.venture.BuildConfig
-import ir.vbile.app.venture.core.domain.use_cases.BaseUseCase
-import ir.vbile.app.venture.core.util.SimpleResource
 import ir.vbile.app.venture.feature_auth.data.remote.AuthApi
 import ir.vbile.app.venture.feature_auth.data.repository.AuthRepositoryImpl
 import ir.vbile.app.venture.feature_auth.data.repository.DemoAuthRepositoryImpl
 import ir.vbile.app.venture.feature_auth.domain.repository.AuthRepository
 import ir.vbile.app.venture.feature_auth.domain.use_case.AuthenticateUseCase
+import ir.vbile.app.venture.feature_auth.domain.use_case.AuthenticateUseCaseImpl
+import ir.vbile.app.venture.feature_auth.domain.use_case.RegisterUseCase
+import ir.vbile.app.venture.feature_auth.domain.use_case.RegisterUseCaseImpl
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -42,7 +43,15 @@ object AuthModule {
     @Singleton
     fun provideAuthenticateUseCase(
         repository: AuthRepository
-    ): BaseUseCase<SimpleResource> {
-        return AuthenticateUseCase(repository)
+    ): AuthenticateUseCase {
+        return AuthenticateUseCaseImpl(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRegisterUseCase(
+        repository: AuthRepository
+    ): RegisterUseCase {
+        return RegisterUseCaseImpl(repository)
     }
 }

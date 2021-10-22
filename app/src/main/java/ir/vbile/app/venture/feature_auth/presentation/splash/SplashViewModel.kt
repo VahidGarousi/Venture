@@ -1,27 +1,27 @@
 package ir.vbile.app.venture.feature_auth.presentation.splash
 
+import android.util.Patterns
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ir.vbile.app.venture.core.domain.use_cases.BaseUseCase
 import ir.vbile.app.venture.core.util.Resource
 import ir.vbile.app.venture.core.util.Screen
-import ir.vbile.app.venture.core.util.SimpleResource
 import ir.vbile.app.venture.core.util.UiEvent
+import ir.vbile.app.venture.feature_auth.domain.use_case.AuthenticateUseCase
+import ir.vbile.app.venture.feature_auth.presentation.util.AuthError
 import ir.vbile.app.venture.feature_auth.util.AuthConstants
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val authenticateUseCase: BaseUseCase<SimpleResource>,
+    private val authenticateUseCase: AuthenticateUseCase,
     @Named("immediateMain") private val defaultDispatcher: CoroutineDispatcher
 ) : ViewModel() {
     private val _uiEvent = mutableStateOf<UiEvent>(UiEvent.Idle)

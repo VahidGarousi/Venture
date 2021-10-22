@@ -15,8 +15,8 @@ class AuthRepositoryImpl @Inject constructor(
 ) : AuthRepository {
     override suspend fun register(
         email: String,
-        username: String,
-        password: String
+        password: String,
+        confirmPassword : String
     ): SimpleResource {
         TODO("Not yet implemented")
     }

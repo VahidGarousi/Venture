@@ -29,6 +29,7 @@ import ir.vbile.app.venture.core.presentation.ui.component.StandardTextField
 import ir.vbile.app.venture.core.presentation.ui.theme.SpaceLarge
 import ir.vbile.app.venture.core.util.TestTags
 import ir.vbile.app.venture.core.util.TestTags.STANDARD_TEXT_FIELD
+import ir.vbile.app.venture.feature_auth.presentation.util.AuthError
 
 @Preview
 @Composable

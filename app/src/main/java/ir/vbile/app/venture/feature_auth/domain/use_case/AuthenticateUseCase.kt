@@ -1,14 +1,19 @@
 package ir.vbile.app.venture.feature_auth.domain.use_case
 
-import ir.vbile.app.venture.core.domain.use_cases.BaseUseCase
+import ir.vbile.app.venture.core.util.Resource
 import ir.vbile.app.venture.core.util.SimpleResource
+import ir.vbile.app.venture.core.util.UiText
 import ir.vbile.app.venture.feature_auth.domain.repository.AuthRepository
 import javax.inject.Inject
 
-class AuthenticateUseCase @Inject constructor(
+class AuthenticateUseCaseImpl @Inject constructor(
     private val repository: AuthRepository
-) : BaseUseCase<SimpleResource> {
+) : AuthenticateUseCase {
     override suspend fun invoke(): SimpleResource {
-        return repository.authenticate()
+        return Resource.Error(UiText.unknownError())
     }
+}
+
+interface AuthenticateUseCase {
+    suspend operator fun invoke(): SimpleResource
 }

@@ -4,13 +4,14 @@ import ir.vbile.app.venture.core.util.Resource
 import ir.vbile.app.venture.core.util.SimpleResource
 import ir.vbile.app.venture.core.util.UiText
 import ir.vbile.app.venture.feature_auth.domain.repository.AuthRepository
+import ir.vbile.app.venture.feature_auth.presentation.register.RegisterEvent
 import kotlin.random.Random
 
 class DemoAuthRepositoryImpl : AuthRepository {
     override suspend fun register(
         email: String,
-        username: String,
-        password: String
+        password: String,
+        confirmPassword : String
     ): SimpleResource {
         TODO("Not yet implemented")
     }

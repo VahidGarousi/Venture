@@ -52,6 +52,15 @@ android {
     testOptions {
         animationsDisabled = true
     }
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
 }
 
 dependencies {
@@ -118,6 +127,8 @@ dependencies {
     testImplementation "org.robolectric:robolectric:4.6.1"
     testImplementation "androidx.test.ext:junit-ktx:1.1.3"
     testImplementation "androidx.test:core-ktx:1.4.0"
+    // Add Test Extention to Flow
+    testImplementation 'app.cash.turbine:turbine:0.6.1'
 
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.39.1'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.39.1'

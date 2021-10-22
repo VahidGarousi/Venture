@@ -14,11 +14,10 @@ import ir.vbile.app.venture.core.presentation.NavigationActions
 import ir.vbile.app.venture.core.presentation.ui.theme.VentureTheme
 import ir.vbile.app.venture.core.util.Screen
 import ir.vbile.app.venture.core.util.TestTags
-import ir.vbile.app.venture.feature_auth.domain.use_case.FakeAuthenticateUseCase
+import ir.vbile.app.venture.feature_auth.domain.use_cases.FakeAuthenticateUseCaseTest
 import ir.vbile.app.venture.feature_auth.util.AuthConstants
 import ir.vbile.app.venture.platform.mobile.presentation.MainActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.runBlockingTest
@@ -48,7 +47,7 @@ class SplashScreenTest {
     fun setUp() {
         MockKAnnotations.init(this)
         vm = SplashViewModel(
-            authenticateUseCase = FakeAuthenticateUseCase(),
+            authenticateUseCase = FakeAuthenticateUseCaseTest(),
             defaultDispatcher = testDispatcher
         )
     }

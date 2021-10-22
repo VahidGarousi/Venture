@@ -16,4 +16,5 @@
     <string name="sign_up">ثبت نام کنید</string>
     <string name="error_couldnt_reach">سرور در دسترس نیست</string>
     <string name="oops_something_went_wrong">خطای نا مشخص</string>
+    <string name="successfully_registered_an_account">Successfully registered</string>
 </resources>

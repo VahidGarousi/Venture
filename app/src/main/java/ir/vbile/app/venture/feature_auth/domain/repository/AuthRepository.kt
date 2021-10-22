@@ -5,8 +5,8 @@ import ir.vbile.app.venture.core.util.SimpleResource
 interface AuthRepository {
     suspend fun register(
         email: String,
-        username: String,
         password: String,
+        confirmPassword : String
     ): SimpleResource
 
     suspend fun login(
