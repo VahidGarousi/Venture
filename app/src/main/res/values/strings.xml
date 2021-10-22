@@ -21,7 +21,7 @@
     <string name="oops_something_went_wrong">خطای نا مشخص</string>
     <string name="successfully_registered_an_account">ثبت نام با موفقیت انجام شد</string>
     <string name="error_field_empty">این فیلد نمی تواند خالی باشد</string>
-    <string name="not_valid_email">این ایمیل معتبر نیست</string>
+    <string name="invalid_email">این ایمیل معتبر نیست</string>
     <string name="password_are_not_same">رمز عبور یکسان نیست!</string>
     <string name="input_too_short">رمزعبور حداقل باید شامل %d کاراکتر باشد</string>
     <string name="invalid_password">رمز عبور باید حداقل دارای یک حرف بزرگ و یک عدد باشد</string>

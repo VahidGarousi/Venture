@@ -17,7 +17,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ir.vbile.app.venture.R
 import ir.vbile.app.venture.core.presentation.NavigationActions
@@ -67,7 +66,7 @@ fun RegisterScreen(
                 },
                 error = when (emailState.error) {
                     is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
-                    is AuthError.InvalidEmail -> stringResource(id = R.string.not_valid_email)
+                    is AuthError.InvalidEmail -> stringResource(id = R.string.invalid_email)
                     else -> ""
                 },
                 keyboardType = KeyboardType.Email,

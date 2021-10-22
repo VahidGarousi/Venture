@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import ir.vbile.app.venture.core.presentation.ui.theme.IconSizeMedium
 import ir.vbile.app.venture.core.presentation.ui.theme.SpaceSmall
+import ir.vbile.app.venture.core.util.TestTags
 import ir.vbile.app.venture.core.util.TestTags.PASSWORD_TOGGLE
 import ir.vbile.app.venture.core.util.TestTags.STANDARD_TEXT_FIELD
 
@@ -36,6 +37,7 @@ fun StandardTextField(
     hint: String = "",
     maxLength: Int = 400,
     error: String = "",
+    errorTestTag : String = TestTags.ERROR_TAG,
     singleLine: Boolean = true,
     maxLines: Int = 1,
     style: TextStyle = TextStyle(
@@ -48,7 +50,7 @@ fun StandardTextField(
     onPasswordToggleClick: (Boolean) -> Unit = {},
     onValueChanged: (String) -> Unit
 ) {
-    Column(modifier = modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         TextField(
             value = text,
             placeholder = {
@@ -118,6 +120,7 @@ fun StandardTextField(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = SpaceSmall)
+                    .testTag(errorTestTag)
             )
         }
     }

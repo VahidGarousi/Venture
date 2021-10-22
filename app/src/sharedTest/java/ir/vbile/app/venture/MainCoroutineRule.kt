@@ -1,4 +1,4 @@
-package ir.vbile.app.venture.core
+package ir.vbile.app.venture
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

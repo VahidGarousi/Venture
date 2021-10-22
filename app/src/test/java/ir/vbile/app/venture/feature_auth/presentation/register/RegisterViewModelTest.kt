@@ -3,7 +3,7 @@ package ir.vbile.app.venture.feature_auth.presentation.register
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
 import ir.vbile.app.venture.R
-import ir.vbile.app.venture.core.MainCoroutineRule
+import ir.vbile.app.venture.MainCoroutineRule
 import ir.vbile.app.venture.core.util.UiEvent
 import ir.vbile.app.venture.core.util.UiText
 import ir.vbile.app.venture.feature_auth.data.repository.FakeAuthRepository

@@ -2,7 +2,6 @@ package ir.vbile.app.venture.core.presentation
 
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -35,13 +34,18 @@ fun AppNavigation(
         composable(
             route = Screen.LoginScreen.route
         ) {
-            LoginScreen()
+            LoginScreen(
+                scaffoldState = scaffoldState,
+                navAction = {
+                    processNavigationAction(it,navController)
+                }
+            )
         }
         composable(
             route = Screen.RegisterScreen.route
         ) {
             RegisterScreen(
-                navAction = { processNavigationAction(it,navController) }
+                navAction = { processNavigationAction(it, navController) }
             )
         }
 
@@ -82,10 +86,10 @@ fun AppNavigation(
 
 private fun processNavigationAction(
     action: NavigationActions,
-    nacController: NavHostController
+    navController: NavHostController
 ) {
     when (action) {
-        is NavigationActions.Navigate -> nacController.navigate(action.route)
-        NavigationActions.NavigateUp -> nacController.popBackStack()
+        is NavigationActions.Navigate -> navController.navigate(action.route)
+        NavigationActions.NavigateUp -> navController.popBackStack()
     }
 }

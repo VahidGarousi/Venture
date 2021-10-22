@@ -1,10 +1,9 @@
 package ir.vbile.app.venture.feature_auth.presentation.login
 
 import com.google.common.truth.Truth.assertThat
-import ir.vbile.app.venture.core.MainCoroutineRule
+import ir.vbile.app.venture.MainCoroutineRule
 import ir.vbile.app.venture.feature_auth.data.repository.FakeAuthRepository
 import ir.vbile.app.venture.feature_auth.domain.repository.AuthRepository
-import ir.vbile.app.venture.feature_auth.domain.use_case.LoginUseCase
 import ir.vbile.app.venture.feature_auth.domain.use_case.LoginUseCaseImpl
 import ir.vbile.app.venture.feature_auth.presentation.util.AuthError
 import kotlinx.coroutines.ExperimentalCoroutinesApi

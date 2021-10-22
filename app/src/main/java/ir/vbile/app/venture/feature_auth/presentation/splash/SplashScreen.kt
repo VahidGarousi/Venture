@@ -73,7 +73,6 @@ fun SplashScreen(
                             )
                         )
                     }
-                    UiEvent.Idle -> Unit
                 }
             }
         }

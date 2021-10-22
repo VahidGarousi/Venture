@@ -1,9 +1,6 @@
 package ir.vbile.app.venture.feature_auth.presentation.splash
 
-import com.google.common.truth.Truth.assertThat
-import ir.vbile.app.venture.core.MainCoroutineRule
-import ir.vbile.app.venture.core.util.Screen
-import ir.vbile.app.venture.core.util.UiEvent
+import ir.vbile.app.venture.MainCoroutineRule
 import ir.vbile.app.venture.feature_auth.domain.use_cases.FakeAuthenticateUseCaseTest
 import ir.vbile.app.venture.feature_auth.util.AuthConstants
 import kotlinx.coroutines.ExperimentalCoroutinesApi
