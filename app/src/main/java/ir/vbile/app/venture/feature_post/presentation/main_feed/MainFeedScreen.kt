@@ -5,10 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScaffoldState
-import androidx.compose.material.Text
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -19,6 +18,7 @@ import ir.vbile.app.venture.R
 import ir.vbile.app.venture.core.presentation.NavigationActions
 import ir.vbile.app.venture.core.presentation.ui.component.Post
 import ir.vbile.app.venture.core.presentation.ui.component.StandardToolbar
+import ir.vbile.app.venture.core.util.Screen
 
 @Composable
 fun MainFeedScreen(
@@ -36,6 +36,17 @@ fun MainFeedScreen(
                     style = MaterialTheme.typography.h6.copy(fontSize = 16.sp),
                     color = MaterialTheme.colors.onBackground
                 )
+            },
+            navActions = {
+                IconButton(onClick = {
+                    navigationActions(NavigationActions.Navigate(Screen.SearchScreen.route))
+                }) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = "Add",
+                        tint = MaterialTheme.colors.onBackground
+                    )
+                }
             }
         )
         Box(modifier = Modifier.fillMaxWidth()) {
