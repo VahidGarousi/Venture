@@ -26,4 +26,13 @@
     <string name="input_too_short">رمزعبور حداقل باید شامل %d کاراکتر باشد</string>
     <string name="invalid_password">رمز عبور باید حداقل دارای یک حرف بزرگ و یک عدد باشد</string>
     <string name="login">ورود</string>
+    <string name="your_feed">صفحه اصلی</string>
+    <string name="back">بازگشت</string>
+    <string name="unlike">Unlike</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="read_more">بیشتر</string>
+    <string name="liked_by_x_people">توسط %d نفر لایک شده است</string>
+    <string name="x_comments">%d دیدگاه</string>
 </resources>

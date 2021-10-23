@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ir.vbile.app.venture">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="ir.vbile.app.venture.core.VentureBaseApplication"
         android:allowBackup="true"

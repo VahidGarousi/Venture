@@ -20,7 +20,7 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.LoginScreen.route
+        startDestination = Screen.MainFeedScreen.route
     ) {
         composable(
             route = Screen.SplashScreen.route
