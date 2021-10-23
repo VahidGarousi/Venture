@@ -9,5 +9,6 @@ internal sealed class Screen(val route: String) {
     object ActivityScreen : Screen("activity_screen")
     object ProfileScreen : Screen("profile_screen")
     object SearchScreen : Screen("search_screen")
+    object PostDetailScreen : Screen("post_detail_screen")
     object SplashScreen : Screen("splash_screen")
 }

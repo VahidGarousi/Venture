@@ -140,7 +140,7 @@ fun ActionRow(
     onUsernameClick: (String) -> Unit = {},
     isLiked: Boolean = false,
     username: String,
-    profileImageUrl: String
+    profileImageUrl: String? = null
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -150,16 +150,18 @@ fun ActionRow(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.profile_image),
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .size(ProfilePictureSizeExtraSmall)
-                    .clickable {
-                        onUsernameClick(username)
-                    },
-                contentDescription = profileImageUrl
-            )
+            if (profileImageUrl != null){
+                Image(
+                    painter = painterResource(id = R.drawable.profile_image),
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .size(ProfilePictureSizeExtraSmall)
+                        .clickable {
+                            onUsernameClick(username)
+                        },
+                    contentDescription = profileImageUrl
+                )
+            }
             Spacer(modifier = Modifier.width(SpaceSmall))
             Text(
                 text = username,

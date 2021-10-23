@@ -12,6 +12,7 @@ import ir.vbile.app.venture.feature_auth.presentation.login.LoginScreen
 import ir.vbile.app.venture.feature_auth.presentation.register.RegisterScreen
 import ir.vbile.app.venture.feature_auth.presentation.splash.SplashScreen
 import ir.vbile.app.venture.feature_post.presentation.main_feed.MainFeedScreen
+import ir.vbile.app.venture.feature_post.presentation.post_detail.PostDetailScreen
 
 @Composable
 fun AppNavigation(
@@ -20,7 +21,7 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.MainFeedScreen.route
+        startDestination = Screen.PostDetailScreen.route
     ) {
         composable(
             route = Screen.SplashScreen.route
@@ -37,7 +38,7 @@ fun AppNavigation(
             LoginScreen(
                 scaffoldState = scaffoldState,
                 navAction = {
-                    processNavigationAction(it,navController)
+                    processNavigationAction(it, navController)
                 }
             )
         }
@@ -53,6 +54,11 @@ fun AppNavigation(
             Screen.MainFeedScreen.route
         ) {
             MainFeedScreen()
+        }
+        composable(
+            Screen.PostDetailScreen.route
+        ) {
+            PostDetailScreen()
         }
         composable(
             Screen.ChatScreen.route
