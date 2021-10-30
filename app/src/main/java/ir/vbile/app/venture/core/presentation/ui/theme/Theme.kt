@@ -5,10 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color.Companion.Green
-import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.White
-import androidx.compose.ui.graphics.Color.Companion.Yellow
 
 private val DarkColorPalette = darkColors(
     primary = IrrigoPurple,
@@ -24,8 +21,8 @@ private val LightColorPalette = lightColors(
     primary = IrrigoPurple,
     primaryVariant = Purple700,
     secondary = Teal200,
-    background = ColdSteal,
-    surface = BlackVelvet,
+    background = SteelGray,
+    surface = SteelGray,
     /* Other default colors to override
     onPrimary = Color.White,
     onSecondary = Color.Black,

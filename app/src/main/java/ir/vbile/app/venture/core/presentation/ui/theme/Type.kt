@@ -1,6 +1,5 @@
 package ir.vbile.app.venture.core.presentation.ui.theme
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -54,6 +53,11 @@ val Typography = Typography(
         fontSize = 14.sp,
         color = TextWhite,
         shadow = Shadow(Color.LightGray, Offset(0.2f, 0.2f), 0.5f)
+    ),
+    subtitle1 = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 15.sp,
+        letterSpacing = 0.1.sp
     ),
     /* Other default text styles to override
     button = TextStyle(
