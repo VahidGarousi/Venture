@@ -49,7 +49,7 @@ class RegisterViewModelTest {
             vm.onEvent(RegisterEvent.EnteredEmail(emptyField))
             vm.onEvent(RegisterEvent.Register)
             val emailState = vm.emailState.value
-            assertThat(emailState.error).isEqualTo(AuthError.FieldEmpty)
+            assertThat(emailState.error).isEqualTo(AuthError.InvalidEmail)
         }
     }
 
